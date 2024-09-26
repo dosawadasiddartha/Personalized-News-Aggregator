@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Articles</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Personalized News Aggregator</h1>
+        
+        <div class="mb-4">
+            <input type="text" id="search" placeholder="Search articles..." class="form-control mb-2">
+            <button id="search-button" class="btn btn-primary">Search</button>
+        </div>
+
+        <div class="form-group">
+            <label for="category">Filter by Category:</label>
+            <select id="category" class="form-control">
+                <option value="">All</option>
+                <option value="Politics">Politics</option>
+                <option value="Technology">Technology</option>
+                <option value="Sports">Sports</option>
+                <option value="Health">Health</option>
+                <option value="Finance">Finance</option>
+                <option value="Science">Science</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="International Relations">International Relations</option>
+                <option value="Weather/Disaster">Weather/Disaster</option>
+            </select>
+        </div>
+
+        <div id="articles" class="list-group"></div>
+    </div>
+
+    <script src="script.js"></script>
+
+
+</body>
+</html>
