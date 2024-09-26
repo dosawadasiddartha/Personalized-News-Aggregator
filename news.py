@@ -132,7 +132,7 @@ categories = {
     'Weather/Disaster': ['weather', 'storm', 'flood', 'rain', 'disaster', 'alert', 'evacuation'],
    
 }
-
+#Function to categorize an article based on keywords
 def categorize_article(text):
     
     doc = nlp(text.lower())
@@ -142,11 +142,11 @@ def categorize_article(text):
             return category
     
     return 'Other' 
-
+# Load CNN articles from a CSV file into a DataFrame
 cnn_df = pd.read_csv('cnn_articles.csv')
 
 toi_df = pd.read_csv('toi_articles.csv')  
-
+#Apply the categorize_article function to the 'Summary' column of CNN articles
 cnn_df['Category'] = cnn_df['Summary'].apply(categorize_article)
 
 toi_df['Category'] = toi_df['Summary'].apply(categorize_article)
