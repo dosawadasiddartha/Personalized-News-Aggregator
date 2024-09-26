@@ -5,13 +5,14 @@ import pandas as pd
 from datetime import datetime
 from typing import List, Optional
 
-
+#Load articles data from CSV
 def load_articles():
     try:
         return pd.read_csv('news_articles_with_categories.csv')
     except FileNotFoundError:
         raise Exception("CSV file not found. Ensure the file path is correct.")
 
+#Load the articles
 articles_df = load_articles()
 app = FastAPI()
 
