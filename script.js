@@ -3,12 +3,14 @@ const searchInput = document.getElementById('search');
 const categorySelect = document.getElementById('category');
 const searchButton = document.getElementById('search-button');
 
+// Function to fetch articles
 async function fetchArticles() {
     const category = categorySelect.value;
     const searchQuery = searchInput.value;
 
     let url;
 
+// If there's a search query, use the `/search` endpoint
     if (searchQuery) {
         url = `http://127.0.0.1:8000/search?query=${encodeURIComponent(searchQuery)}`;
     } else {
@@ -30,6 +32,7 @@ async function fetchArticles() {
     displayArticles(articles);
 }
 
+// Function to display articles and make them clickable
 function displayArticles(articles) {
     articlesContainer.innerHTML = '';
     if (articles.length === 0) {
@@ -46,8 +49,10 @@ function displayArticles(articles) {
     });
 }
 
+// Event listener for search button click
 searchButton.addEventListener('click', fetchArticles);
 
+// Event listeners for filtering
 searchInput.addEventListener('input', fetchArticles);
 categorySelect.addEventListener('change', fetchArticles);
 
