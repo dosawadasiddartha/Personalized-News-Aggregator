@@ -12,9 +12,9 @@ def load_articles():
     except FileNotFoundError:
         raise Exception("CSV file not found. Ensure the file path is correct.")
 
-#Load the articles
+#Load the articles into a DataFrame
 articles_df = load_articles()
-app = FastAPI()
+app = FastAPI() #Initialize the FastAPI application
 
 
 app.add_middleware(
@@ -34,7 +34,7 @@ class Article(BaseModel):
     url: str
     category: str
 
-
+#Function to convert the DataFrame to a list of Article objects
 def get_articles() -> List[Article]:
     return [
         Article(
@@ -49,7 +49,7 @@ def get_articles() -> List[Article]:
         for index, row in articles_df.iterrows()
     ]
 
-
+#Test endpoint to verify articles are loaded correctly
 @app.get("/test-articles", response_model=List[Article])
 def test_articles():
     articles = get_articles()
@@ -61,7 +61,7 @@ def read_articles(category: Optional[str] = None, start_date: Optional[str] = No
 
     
     print("Initial articles count:", len(articles))
-
+#Filter by category if provided
     if category:
         print(f"Filtering by category: {category}")
         articles = [article for article in articles if article.category.lower() == category.lower()]
@@ -81,6 +81,7 @@ def read_articles(category: Optional[str] = None, start_date: Optional[str] = No
 
     return articles
 
+#Retrieve a specific article by its ID.
 @app.get("/articles/{id}", response_model=Article)
 def read_article(id: int):
     articles = get_articles()
@@ -90,6 +91,8 @@ def read_article(id: int):
     raise HTTPException(status_code=404, detail="Article not found")
 
 @app.get("/search", response_model=List[Article])
+
+#Search for articles by a keyword in the title or summary.
 def search_articles(query: str):
     articles = get_articles()
     filtered_articles = [
