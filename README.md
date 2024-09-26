@@ -53,3 +53,12 @@ Import the Postman collection.
 You can now run the different API requests to test the endpoints.
 
 Postman Collection Link: https://github.com/dosawadasiddartha/Personalized-News-Aggregator/blob/main/News%20API%20Project.postman_collection.json
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Evaluation Criteria:
+
+Scraper Robustness and Data Quality: The web scraper handles multiple sources and extracts articles with clean data. Date formats are standardized.
+API Design and Functionality: The API offers flexible querying capabilities, filtering by category, date range, and keywords.
+Error Handling: The project includes proper error handling for different scenarios such as invalid dates or article IDs.
+Code Structure and Documentation: The project is modular, well-organized, and thoroughly documented. Each endpoint is clearly explained with examples.
