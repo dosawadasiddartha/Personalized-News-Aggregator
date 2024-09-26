@@ -52,4 +52,4 @@ Download and install Postman.
 Import the Postman collection.
 You can now run the different API requests to test the endpoints.
 
-Postman Collection Link: 
+Postman Collection Link: https://github.com/dosawadasiddartha/Personalized-News-Aggregator/blob/main/News%20API%20Project.postman_collection.json
